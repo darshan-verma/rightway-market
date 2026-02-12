@@ -6,36 +6,7 @@ export default function Footer() {
       <div className="site-container flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div style={{ maxWidth: 420 }}>
           <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-            <div
-              style={{
-                width: 96,
-                height: 140,
-                background: "#fff",
-                borderRadius: 12,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "relative",
-                boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: 8,
-                  right: 8,
-                  background: "#ff3b30",
-                  color: "#fff",
-                  padding: "6px 8px",
-                  borderRadius: 999,
-                  fontWeight: 800,
-                  fontSize: 12,
-                }}
-              >
-                Say Hi!
-              </div>
-              <div style={{ width: 56, height: 90, background: "#f6f6f6", borderRadius: 6 }} />
-            </div>
+            <img src="/logo.png" alt="Rightway Market" style={{ width: 96, height: 'auto', objectFit: 'contain' }} />
 
             <div>
               <h4 style={{ margin: 0, fontWeight: 800 }}>Congratulations for traveling from start to the end of this page!</h4>

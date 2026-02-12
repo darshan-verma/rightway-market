@@ -2,17 +2,15 @@ import React, { useState } from "react";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
   const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
 
   const navLinks = [
-    { href: "/about-us", label: "ABOUT US" },
-    { href: "/services", label: "SERVICES" },
-    { href: "/our-work", label: "OUR WORK" },
-    { href: "/#awards", label: "AWARDS" },
-    { href: "/#clients", label: "CLIENTS" },
-    { href: "/our-team", label: "OUR TEAM" },
-    { href: "/careers", label: "CAREERS" },
-    { href: "/contact-us", label: "CONTACT US" },
+    { href: "/about-us", label: "ABOUT US", icon: "/navbar images/about-icon.svg" },
+    { href: "/services", label: "SERVICES", icon: "/navbar images/services-icon.svg" },
+    { href: "/our-work", label: "OUR WORK", icon: "/navbar images/projects-icon.svg" },
+    { href: "/our-team", label: "OUR TEAM", icon: "/navbar images/team-icon.svg" },
+    { href: "/contact-us", label: "CONTACT US", icon: "/navbar images/contact-icon.svg" },
   ];
 
   const isActive = (href) => {
@@ -22,15 +20,23 @@ export default function Navbar() {
 
   return (
     <header className="site-header">
-      <div className="site-container flex items-center justify-between py-4">
-        <div className="flex items-center gap-6">
-          <a href="/" className="font-extrabold text-lg" style={{letterSpacing: '-0.02em', textDecoration: 'none', color: '#000'}}>
-            social<span style={{fontWeight: 900}}>panga</span>
-          </a>
-          <nav className="hidden md:flex gap-5 text-xs text-gray-700" style={{fontWeight: 600, letterSpacing: '0.04em'}}>
-            {navLinks.map((link) => (
+      <div className="site-container navbar-inner">
+        <a href="/" className="navbar-logo navbar-logo-text">
+          Rightway Market
+        </a>
+        <nav className="navbar-links hidden md:flex">
+          {navLinks.map((link) => (
+            <div
+              key={link.href}
+              className="nav-link-wrap"
+              onMouseEnter={() => setHoveredLink(link.href)}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              {/* Icon that appears above the text */}
+              <div className={`nav-icon-bubble${hoveredLink === link.href ? " show" : ""}`}>
+                <img src={link.icon} alt="" className="nav-icon-img" />
+              </div>
               <a
-                key={link.href}
                 href={link.href}
                 className="nav-link-item"
                 style={{
@@ -44,15 +50,9 @@ export default function Navbar() {
               >
                 {link.label}
               </a>
-            ))}
-          </nav>
-        </div>
-
-        {/* Panga mascot / icon */}
-        <div className="hidden md:flex items-center gap-3">
-          <span style={{ fontSize: 24 }} aria-hidden="true">🔥</span>
-        </div>
-
+            </div>
+          ))}
+        </nav>
         {/* Mobile menu toggle */}
         <button
           className="md:hidden"

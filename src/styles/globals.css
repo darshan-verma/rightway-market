@@ -27,6 +27,85 @@ header.site-header{
   z-index: 40;
 }
 
+/* Navbar inner layout */
+.navbar-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 14px;
+  min-height: 90px;
+}
+
+.navbar-logo {
+  text-decoration: none;
+  align-self: flex-end;
+  padding-bottom: 2px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.navbar-logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.navbar-logo-img {
+  height: 52px;
+  width: 52px;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 22px;
+  align-items: flex-end;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: #555;
+}
+
+/* Each nav link + icon wrapper */
+.nav-link-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon bubble that sits above the text */
+.nav-icon-bubble {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.6);
+  transition: opacity 220ms cubic-bezier(.2,.9,.2,1),
+              transform 220ms cubic-bezier(.2,.9,.2,1);
+  pointer-events: none;
+}
+
+.nav-icon-bubble.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.nav-icon-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
 .site-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -345,6 +424,11 @@ header.site-header{
   gap: 48px;
   align-items: center;
   padding: 48px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.service-row:last-child {
+  border-bottom: none;
 }
 
 .service-text { max-width: 460px; }
@@ -366,21 +450,65 @@ header.site-header{
   line-height: 1.55;
 }
 
-/* Image placeholder — visible yellow-tinted box so user can see the reserved space */
+/* Service number label */
+.service-number {
+  display: block;
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--yellow-dark);
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+/* Image area with hover-to-gif */
 .service-art {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 260px;
 }
-.service-art img {
-  max-width: 100%;
+
+.service-img-wrap {
+  position: relative;
   width: 380px;
-  height: 260px;
+  height: 280px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.service-img-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
-  background: rgba(242, 201, 0, 0.08);
-  border-radius: 4px;
+  transition: opacity 350ms ease, transform 400ms cubic-bezier(.2,.9,.2,1);
+}
+
+.service-img-static {
+  opacity: 1;
+  z-index: 2;
+}
+
+.service-img-static.hidden {
+  opacity: 0;
+}
+
+.service-img-gif {
+  opacity: 0;
+  z-index: 1;
+}
+
+.service-img-gif.visible {
+  opacity: 1;
+  z-index: 3;
+}
+
+.service-img-wrap:hover {
+  transform: scale(1.03);
+  transition: transform 320ms cubic-bezier(.2,.9,.2,1);
 }
 
 /* Reversed row: image LEFT, text RIGHT — no CSS reorder needed, DOM order is swapped */
@@ -394,7 +522,7 @@ header.site-header{
   .service-row.reverse { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
   .service-text.text-right { text-align: left; margin-left: 0; }
   .service-art { min-height: 200px; }
-  .service-art img { width: 100%; height: 200px; }
+  .service-img-wrap { width: 100%; height: 220px; }
 }
 
 /* ===== Our Work page ===== */
