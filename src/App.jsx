@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import ShowcaseSection from "./components/ShowcaseSection";
 import InfoCards from "./components/InfoCards";
 import AwardsSection from "./components/AwardsSection";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -30,21 +31,7 @@ export default function App() {
           </div>
         </section>
 
-        <footer className="footer-yellow">
-          <div className="site-container" style={{display:'flex', gap:24, alignItems:'flex-start', justifyContent:'space-between'}}>
-            <div style={{maxWidth:420}}>
-              <h4 style={{margin:0, fontWeight:800}}>Congratulations</h4>
-              <p style={{marginTop:8, color:'#222'}}>Social Panga is an integrated social media and digital marketing agency in Bangalore, Mumbai, Delhi, and Dubai.</p>
-            </div>
-            <div>
-              <ul style={{listStyle:'none', padding:0, margin:0}}>
-                <li><strong>About Us</strong></li>
-                <li>Services</li>
-                <li>Our Work</li>
-              </ul>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </div>
   );
