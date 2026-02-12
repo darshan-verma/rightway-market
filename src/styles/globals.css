@@ -13,7 +13,7 @@
 html,body,#root{
   height:100%;
   background: #fff;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: "Montserrat",sans-serif;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
@@ -36,32 +36,33 @@ header.site-header{
 
 /* Hero area matching screenshots: full-width yellow band with centered content */
 .hero-landing {
+  display: grid;
+  align-items: center;
   background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow) 100%);
   color: var(--accent);
-  padding: 6.5rem 0 6rem;
+  height: 83vh;
   position: relative;
   overflow: hidden;
 }
 
-.hero-landing .hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 560px;
-  align-items: center;
-  gap: 2rem;
-}
 
-.hero-title {
-  font-weight: 800;
-  font-size: 4.25rem;
-  line-height: 1.02;
+.hero-text{
+  
+  font-weight: 500;
+  line-height: 1.5;
   margin: 0;
   letter-spacing: -0.02em;
 }
+.hero-title {
+  font-size: 4.25rem;
+}
 
 .hero-sub {
-  margin-top: 1rem;
-  font-size: 1.25rem;
-  color: rgba(0,0,0,0.6);
+  font-size: 3.615rem;
+}
+
+.hero-sub2 {
+  font-size: 3.19rem;
 }
 
 .hero-illustration {
@@ -94,14 +95,13 @@ header.site-header{
 
 /* Make interactive words noticeable */
 .interactive-word:focus { outline: 2px solid rgba(0,0,0,0.08); border-radius: 4px; }
-.interactive-word { transition: transform 180ms ease, color 180ms ease; display:inline-block; }
+.interactive-word {font-weight: 800; transition: transform 180ms ease, color 180ms ease; display:inline-block; }
 .interactive-word:hover { transform: translateY(-2px); }
 
 /* Awards strip below hero: white frame with icons and carousel look */
 .awards-strip {
   background: #fff;
   padding: 3rem 0;
-  border-top: 6px solid var(--yellow);
 }
 
 .footer-yellow {
