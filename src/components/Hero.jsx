@@ -23,38 +23,44 @@ export default function Hero() {
           <h1 className="hero-title">
             We Are{" "}
             <span
-              className="interactive-word"
+              className="interactive-word word-marketing"
               onMouseEnter={() => setPanel("marketing")}
+              onMouseLeave={() => setPanel("default")}
               onFocus={() => setPanel("marketing")}
+              onBlur={() => setPanel("default")}
               tabIndex={0}
               aria-controls="marketing-panel"
-              style={{cursor: "pointer"}}
+              style={{ cursor: "pointer" }}
             >
-              <strong style={{fontWeight: 900}}>Marketing Mafias</strong>
+              <strong style={{ fontWeight: 900 }}>Marketing Mafias</strong>
             </span>
           </h1>
 
           <p className="hero-sub">
             Skilled enough to know{" "}
             <span
-              className="interactive-word"
+              className="interactive-word word-better"
               onMouseEnter={() => setPanel("better")}
+              onMouseLeave={() => setPanel("default")}
               onFocus={() => setPanel("better")}
+              onBlur={() => setPanel("default")}
               tabIndex={0}
               aria-controls="better-panel"
-              style={{cursor: "pointer"}}
+              style={{ cursor: "pointer" }}
             >
               <strong>better</strong>
             </span>
             <br />
             Wild enough to think{" "}
             <span
-              className="interactive-word"
+              className="interactive-word word-bigger"
               onMouseEnter={() => setPanel("bigger")}
+              onMouseLeave={() => setPanel("default")}
               onFocus={() => setPanel("bigger")}
+              onBlur={() => setPanel("default")}
               tabIndex={0}
               aria-controls="bigger-panel"
-              style={{cursor: "pointer"}}
+              style={{ cursor: "pointer" }}
             >
               <strong>bigger!</strong>
             </span>

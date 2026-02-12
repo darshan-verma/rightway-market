@@ -1,6 +1,9 @@
 import React from "react";
 import Navbar from "./components/Layout/Navbar";
 import Hero from "./components/Hero";
+import ShowcaseSection from "./components/ShowcaseSection";
+import InfoCards from "./components/InfoCards";
+import AwardsSection from "./components/AwardsSection";
 
 export default function App() {
   return (
@@ -8,6 +11,9 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <ShowcaseSection />
+        <InfoCards />
+        <AwardsSection />
 
         <section className="awards-strip" id="awards">
           <div className="site-container">
