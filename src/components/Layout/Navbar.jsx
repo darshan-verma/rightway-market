@@ -5,7 +5,7 @@ export default function Navbar() {
   const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
 
   const navLinks = [
-    { href: "/", label: "ABOUT US" },
+    { href: "/about-us", label: "ABOUT US" },
     { href: "/services", label: "SERVICES" },
     { href: "/our-work", label: "OUR WORK" },
     { href: "/#awards", label: "AWARDS" },

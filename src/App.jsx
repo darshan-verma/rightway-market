@@ -8,6 +8,7 @@ import AwardsSection from "./components/AwardsSection";
 import OurWorkSection from "./components/OurWorkSection";
 import OurTeamSection from "./components/OurTeamSection";
 import ContactUsSection from "./components/ContactUsSection";
+import AboutUsSection from "./components/AboutUsSection";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -17,8 +18,17 @@ export default function App() {
   const isOurWorkPage = path === "/our-work";
   const isOurTeamPage = path === "/our-team";
   const isContactUsPage = path === "/contact-us";
+  const isAboutUsPage = path === "/about-us";
 
   const renderPage = () => {
+    if (isAboutUsPage) {
+      return (
+        <>
+          <AboutUsSection />
+          <Footer />
+        </>
+      );
+    }
     if (isOurTeamPage) {
       return (
         <>
