@@ -1,0 +1,48 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+.vite/
+out/
+.parcel-cache/
+.cache/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Test coverage
+coverage/
+nyc_output/
+
+# Cursor / terminal metadata (local to this machine)
+.cursor/
+terminals/
+
+# Misc sensitive files
+*.pem
+*.key
+
+# End of .gitignore
