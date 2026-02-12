@@ -25,6 +25,8 @@ export default function Hero() {
 						<span
 							className="hero-title interactive-word"
 							onMouseEnter={() => setPanel("marketing")}
+							onMouseLeave={() => setPanel("default")}
+							onBlur={() => setPanel("default")}
 							onFocus={() => setPanel("marketing")}
 							tabIndex={0}
 							aria-controls="marketing-panel"
@@ -38,6 +40,8 @@ export default function Hero() {
 							className="hero-sub interactive-word"
 							onMouseEnter={() => setPanel("better")}
 							onFocus={() => setPanel("better")}
+							onMouseLeave={() => setPanel("default")}
+							onBlur={() => setPanel("default")}
 							tabIndex={0}
 							aria-controls="better-panel"
 							style={{ cursor: "pointer" }}
@@ -50,6 +54,8 @@ export default function Hero() {
 							className="hero-sub2 interactive-word"
 							onMouseEnter={() => setPanel("bigger")}
 							onFocus={() => setPanel("bigger")}
+							onMouseLeave={() => setPanel("default")}
+							onBlur={() => setPanel("default")}
 							tabIndex={0}
 							aria-controls="bigger-panel"
 							style={{ cursor: "pointer" }}

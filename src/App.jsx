@@ -1,45 +1,71 @@
 import React from "react";
 import Navbar from "./components/Layout/Navbar";
 import Hero from "./components/Hero";
+import ServicesSection from "./components/ServicesSection";
+import ShowcaseSection from "./components/ShowcaseSection";
+import InfoCards from "./components/InfoCards";
+import AwardsSection from "./components/AwardsSection";
+import OurWorkSection from "./components/OurWorkSection";
+import OurTeamSection from "./components/OurTeamSection";
+import ContactUsSection from "./components/ContactUsSection";
+import Footer from "./components/Footer";
 
 export default function App() {
+  const path = typeof window !== "undefined" ? window.location.pathname : "/";
+
+  const isServicesPage = path === "/services";
+  const isOurWorkPage = path === "/our-work";
+  const isOurTeamPage = path === "/our-team";
+  const isContactUsPage = path === "/contact-us";
+
+  const renderPage = () => {
+    if (isOurTeamPage) {
+      return (
+        <>
+          <OurTeamSection />
+          <Footer />
+        </>
+      );
+    }
+    if (isContactUsPage) {
+      return (
+        <>
+          <ContactUsSection />
+          <Footer />
+        </>
+      );
+    }
+    if (isOurWorkPage) {
+      return (
+        <>
+          <OurWorkSection />
+          <Footer />
+        </>
+      );
+    }
+    if (isServicesPage) {
+      return (
+        <>
+          <ServicesSection />
+          <Footer />
+        </>
+      );
+    }
+    return (
+      <>
+        <Hero />
+        <ShowcaseSection />
+        <InfoCards />
+        <AwardsSection />
+        <Footer />
+      </>
+    );
+  };
+
   return (
     <div className="min-h-screen text-gray-900">
       <Navbar />
-      <main>
-        <Hero />
-
-        <section className="awards-strip" id="awards">
-          <div className="site-container">
-            <h3 style={{fontWeight:800, marginBottom: '1rem'}}>Awards & Recognition</h3>
-            <div style={{display:'flex',gap:24,overflowX:'auto', paddingBottom:8}}>
-              {/* Simple award cards to approximate screenshot */}
-              {[1,2,3,4,5].map((n)=>(
-                <div key={n} style={{minWidth:160, padding:16, border:'1px solid rgba(0,0,0,0.04)', borderRadius:8}}>
-                  <div style={{fontWeight:700}}>Abby 23, GOLD</div>
-                  <div style={{fontSize:12, color:'#666'}}>Guardians of the heart</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <footer className="footer-yellow">
-          <div className="site-container" style={{display:'flex', gap:24, alignItems:'flex-start', justifyContent:'space-between'}}>
-            <div style={{maxWidth:420}}>
-              <h4 style={{margin:0, fontWeight:800}}>Congratulations</h4>
-              <p style={{marginTop:8, color:'#222'}}>Social Panga is an integrated social media and digital marketing agency in Bangalore, Mumbai, Delhi, and Dubai.</p>
-            </div>
-            <div>
-              <ul style={{listStyle:'none', padding:0, margin:0}}>
-                <li><strong>About Us</strong></li>
-                <li>Services</li>
-                <li>Our Work</li>
-              </ul>
-            </div>
-          </div>
-        </footer>
-      </main>
+      <main>{renderPage()}</main>
     </div>
   );
 }
